@@ -1,0 +1,126 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "BeeBuzz",
+        "description": "Set up BeeBuzz to send end-to-end encrypted push notifications.",
+        "data": {
+          "host": "Domain",
+          "api_token": "API token",
+          "topic": "Default topic",
+          "priority": "Default priority"
+        },
+        "data_description": {
+          "host": "Use 'beebuzz.app' for the official service or enter a custom API URL (e.g. https://api.example.com)."
+        }
+      },
+      "reconfigure": {
+        "title": "BeeBuzz",
+        "description": "Update your BeeBuzz connection settings.",
+        "data": {
+          "host": "Domain",
+          "api_token": "API token"
+        },
+        "data_description": {
+          "host": "Use 'beebuzz.app' for the official service or enter a custom API URL (e.g. https://api.example.com).",
+          "api_token": "Leave empty to keep the current token."
+        }
+      },
+      "reauth_confirm": {
+        "title": "BeeBuzz authentication",
+        "description": "The BeeBuzz API token was rejected. Provide a new token to continue.",
+        "data": {
+          "api_token": "API token"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Could not connect to BeeBuzz.",
+      "invalid_auth": "The API token was rejected.",
+      "unknown": "Unexpected error."
+    },
+    "abort": {
+      "already_configured": "BeeBuzz is already configured.",
+      "reauth_successful": "BeeBuzz reauthentication was successful.",
+      "reconfigure_successful": "BeeBuzz reconfiguration was successful."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "BeeBuzz options",
+        "data": {
+          "topic": "Default topic",
+          "priority": "Default priority"
+        }
+      }
+    }
+  },
+  "entity": {
+    "button": {
+      "refresh_device_keys": {
+        "name": "Refresh device keys"
+      }
+    },
+    "sensor": {
+      "device_keys": {
+        "name": "Device keys"
+      }
+    }
+  },
+  "issues": {
+    "no_devices_paired": {
+      "title": "No BeeBuzz devices paired",
+      "description": "BeeBuzz has no paired devices, so notifications cannot be delivered. Open the BeeBuzz app on at least one device and pair it with this account."
+    },
+    "keys_refresh_failed": {
+      "title": "BeeBuzz device key refresh failing",
+      "description": "Home Assistant has been unable to refresh BeeBuzz device keys for several consecutive attempts. Check that the BeeBuzz API host is reachable and that the API token is valid."
+    }
+  },
+  "exceptions": {
+    "no_entry_loaded": {
+      "message": "BeeBuzz is not configured."
+    },
+    "authentication_error": {
+      "message": "The BeeBuzz API token was rejected."
+    },
+    "connection_error": {
+      "message": "Could not connect to BeeBuzz."
+    },
+    "send_failed": {
+      "message": "BeeBuzz send failed: {error}"
+    },
+    "update_failed": {
+      "message": "BeeBuzz request failed: {error}"
+    }
+  },
+  "services": {
+    "send_message": {
+      "name": "Send a BeeBuzz message",
+      "description": "Sends an end-to-end encrypted notification to all paired BeeBuzz devices.",
+      "fields": {
+        "title": {
+          "name": "Title",
+          "description": "Notification title."
+        },
+        "body": {
+          "name": "Body",
+          "description": "Notification body."
+        },
+        "attachment": {
+          "name": "Attachment",
+          "description": "Optional attachment: local path, media-source URI, http(s) URL, or object with url/path/file."
+        },
+        "topic": {
+          "name": "Topic",
+          "description": "Override the default BeeBuzz topic."
+        },
+        "priority": {
+          "name": "Priority",
+          "description": "Override the default delivery priority."
+        }
+      }
+    }
+  }
+}

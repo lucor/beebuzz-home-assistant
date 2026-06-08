@@ -1,0 +1,23 @@
+name: Tests
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  pytest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # `mise install` reads .mise.toml and installs python, uv, and the
+      # FiloSottile age binaries (age + age-keygen). The age tools make the
+      # interop tests in tests/components/beebuzz/test_age.py mandatory in CI
+      # rather than silently skipped.
+      - uses: jdx/mise-action@v2
+      - run: mise run lint
+      - run: mise run test

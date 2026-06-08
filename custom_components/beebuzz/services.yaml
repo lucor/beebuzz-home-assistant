@@ -1,0 +1,29 @@
+send_message:
+  fields:
+    title:
+      required: true
+      selector:
+        text:
+    body:
+      required: true
+      selector:
+        text:
+          multiline: true
+    attachment:
+      required: false
+      example: "/config/www/snapshot.jpg"
+      selector:
+        text:
+    topic:
+      required: false
+      example: "#general"
+      selector:
+        text:
+    priority:
+      required: false
+      default: normal
+      selector:
+        select:
+          options:
+            - normal
+            - high
