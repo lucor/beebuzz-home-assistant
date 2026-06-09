@@ -10,12 +10,28 @@ public key before it is sent to the BeeBuzz API, so the BeeBuzz service can neve
 - Home Assistant **2024.6.0** or newer.
 - A BeeBuzz account, an API token and at least one paired BeeBuzz device.
 
+## Repository
+
+Development happens on
+[Codeberg](https://codeberg.org/beebuzz/home-assistant). The
+[GitHub repository](https://github.com/lucor/beebuzz-home-assistant) is a mirror used for HACS installation.
+
 ## Installation with HACS
 
-1. Add this repository as a HACS custom repository of type **Integration**.
-2. Install **BeeBuzz**.
-3. Restart Home Assistant.
-4. Add the integration from **Settings → Devices & services → Add integration → BeeBuzz**.
+### From the GitHub mirror
+
+Use the GitHub repository
+`https://github.com/lucor/beebuzz-home-assistant` in HACS, then install
+**BeeBuzz**.
+
+### As a custom repository
+
+1. In HACS, open **Custom repositories**.
+2. Add `https://github.com/lucor/beebuzz-home-assistant` with category
+   **Integration**.
+3. Install **BeeBuzz**.
+4. Restart Home Assistant.
+5. Add the integration from **Settings → Devices & services → Add integration → BeeBuzz**.
 
 ## Configuration
 
