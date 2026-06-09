@@ -11,7 +11,7 @@
           "priority": "Default priority"
         },
         "data_description": {
-          "host": "Use 'beebuzz.app' for the official service or enter a custom API URL (e.g. https://api.example.com)."
+          "host": "Use {official_host} for the official service or enter a custom API host."
         }
       },
       "reconfigure": {
@@ -22,7 +22,7 @@
           "api_token": "API token"
         },
         "data_description": {
-          "host": "Use 'beebuzz.app' for the official service or enter a custom API URL (e.g. https://api.example.com).",
+          "host": "Use {official_host} for the official service or enter a custom API host.",
           "api_token": "Leave empty to keep the current token."
         }
       },

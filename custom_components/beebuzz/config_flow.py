@@ -28,6 +28,8 @@ from .const import (
 
 _LOGGER = logging.getLogger(__name__)
 
+HOST_DESCRIPTION_PLACEHOLDERS = {"official_host": DEFAULT_HOST}
+
 
 class BeeBuzzConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
     """Handle a BeeBuzz config flow."""
@@ -63,6 +65,7 @@ class BeeBuzzConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             data_schema=_schema(
                 user_input or {}, include_connection=True, include_behavior=True
             ),
+            description_placeholders=HOST_DESCRIPTION_PLACEHOLDERS,
             errors=errors,
         )
 
@@ -92,6 +95,7 @@ class BeeBuzzConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             data_schema=_schema(
                 entry.data, include_connection=True, include_behavior=False
             ),
+            description_placeholders=HOST_DESCRIPTION_PLACEHOLDERS,
             errors=errors,
         )
 
