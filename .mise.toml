@@ -16,3 +16,10 @@ run = "uv run --no-project --python 3.13 --with-requirements requirements_test.t
 [tasks.lint]
 description = "Run Python lint checks"
 run = "uv run --no-project --python 3.13 --with ruff ruff check custom_components tests"
+
+[tasks.ci]
+description = "Run pre-release verification pipeline"
+run = [
+  "mise run lint",
+  "mise run test",
+]
